@@ -15,7 +15,7 @@ import history from './framework/customHistory'
 import { Router } from 'react-router-dom'
 
 configure({
-  enforceActions: true
+  enforceActions: 'observed'
 })
 
 // 国际化
