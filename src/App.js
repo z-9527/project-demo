@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Switch, Route, withRouter } from 'react-router-dom'
+
 import PrivateRoute from './framework/PrivateRoute'
 import LoadableComponent from './framework/LoadableComponent'
 
