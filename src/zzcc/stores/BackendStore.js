@@ -39,11 +39,7 @@ class BackendStore {
       if (res.status === 0) {
         notification.error({message: res.code, description: res.msg})
       } else {
-        Session.authenticateSuccess(res.data.token)
-        history.push('/')
-        runInAction(() => {
-          this.isLogin = true
-        })
+        this.loginSuccess(res.data.token)
       }
       runInAction(() => {
         this.loading = false
@@ -81,6 +77,16 @@ class BackendStore {
         description: err.message
       })
     }
+  }
+
+  loginSuccess = async (token) => {
+    Session.authenticateSuccess(token)
+    history.push('/')
+    const res = await json.get(`${process.env.REACT_APP_API_URL}/u/menu/platformMark/pc`)
+    this.leftMenu = res.data
+    runInAction(() => {
+      this.isLogin = true
+    })
   }
 }
 
