@@ -1,6 +1,6 @@
 import localeStore from './LocaleStore'
 import backendStore from './BackendStore'
-import userStore from '../routers/Backend/User/store'
+import userStore from '../../components/system/User/store'
 
 const stores = {
   localeStore,

@@ -1,5 +1,5 @@
 import { observable, action, runInAction } from 'mobx'
-import { json, get } from '../../../../framework/utils/ajax'
+import { json, get } from '../../../framework/utils/ajax'
 
 class UserStore {
 

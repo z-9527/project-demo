@@ -1,5 +1,4 @@
 import 'whatwg-fetch'
-import { message } from 'antd'
 import { isAuthenticated, logout } from './Session'
 import history from '../customHistory'
 
