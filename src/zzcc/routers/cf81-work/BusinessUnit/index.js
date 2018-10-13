@@ -1,5 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { inject, observer } from 'mobx-react'
 
-const BusinessUnit = () => <div>123</div>
+@inject('businessUnitStore') @observer
+class BusinessUnit extends Component {
+  render () {
+    return (
+      <div>123</div>
+    )
+  }
+}
 
 export default BusinessUnit

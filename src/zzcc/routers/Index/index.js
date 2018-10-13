@@ -4,7 +4,7 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 
 import Error404 from '../../components/error-page/404'
 
-export default @injectIntl
+@injectIntl
 class Index extends Component {
 
   static propTypes = {
@@ -20,7 +20,10 @@ class Index extends Component {
         </Helmet>
         <FormattedMessage id="index.welcome"/>
         <Error404/>
+        <a href="/backend">backend</a>
       </div>
     )
   }
 }
+
+export default Index

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 import { Form, Input, Icon, Button } from 'antd'
+import LinkButton from '../../../components/LinkButton'
 
 const FormItem = Form.Item
 const form = Form.create()
@@ -31,7 +32,7 @@ class Login extends Component {
           )}
         </FormItem>
         <FormItem>
-          <a href="">忘记密码</a>
+          <LinkButton>忘记密码</LinkButton>
           <Button size="large" loading={backendStore.loading} type="primary" htmlType={'submit'}>
             登录
           </Button>

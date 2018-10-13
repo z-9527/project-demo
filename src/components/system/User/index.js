@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
-import { Card, Button, Table, Icon, Form, Input, Tooltip, Popconfirm, message } from 'antd'
+import { Card, Button, Table, Icon, Form, Input, Tooltip, Popconfirm } from 'antd'
 import ListPageHeader from '../ListPageHeader'
+import LinkButton from '../../LinkButton'
 import Edit from './Edit'
 
 const ButtonGroup = Button.Group
@@ -52,24 +53,21 @@ class List extends Component {
                     render={(text, record) => (
                       <ButtonGroup>
                         <Tooltip title="修改">
-
-                          <a style={{margin: '8px 8px 8px 8px'}} onClick={this.handleEdit.bind(this, record.id)}>
+                          <LinkButton style={{margin: '8px 8px 8px 8px'}} onClick={this.handleEdit.bind(this, record.id)}>
                             <Icon type={'edit'} style={{fontSize: '16px'}}/>
-                          </a>
+                          </LinkButton>
                         </Tooltip>
                         <Tooltip title="删除">
                           <Popconfirm
                             title="是否要删除该人员？删除后该人员将无法正常使用。"
                             onConfirm={this.handleDelete.bind(this, record.id)}
-                            onCancel={this.handCancel}
                             okText="删除"
                             cancelText="取消"
                             placement="left"
-                            okType={'danger'}
                           >
-                            <a style={{margin: '8px 8px 8px 8px'}}>
+                            <LinkButton style={{margin: '8px 8px 8px 8px'}}>
                               <Icon type={'delete'} style={{fontSize: '16px', color: '#f5222d'}}/>
-                            </a>
+                            </LinkButton>
                           </Popconfirm>
                         </Tooltip>
                       </ButtonGroup>
@@ -98,10 +96,6 @@ class List extends Component {
     console.log('current', current)
     console.log('size', size)
   }
-  handCancel = (e) => {
-    message.warning('您取消了删除操作')
-  }
-
 }
 
 const search = Form.create({
