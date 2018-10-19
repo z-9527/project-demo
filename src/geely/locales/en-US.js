@@ -9,5 +9,6 @@ export default {
   antd: antd,
   locale: 'en-US',
   data: appLocaleData,
-  lang:'English'
+  lang:'English',
+  key: 'en',
 }

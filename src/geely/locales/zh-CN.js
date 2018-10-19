@@ -9,5 +9,6 @@ export default {
   antd: antd,
   locale: 'zh-CN',
   data: appLocaleData,
-  lang:'中文'
+  lang:'中文',
+  key: 'zh',
 }

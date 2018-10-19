@@ -4,4 +4,6 @@ export default {
 
   'index.title': 'zzcc',
   'index.welcome': 'welcome',
+
+  'FirstPage.Home': 'go home',
 }

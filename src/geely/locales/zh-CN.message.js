@@ -4,4 +4,6 @@ export default {
 
   'index.title': '众智传承',
   'index.welcome': '欢迎',
+
+  'FirstPage.Home': '进入首页',
 }
