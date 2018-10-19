@@ -22,7 +22,7 @@ class LocaleStore {
     if (!this.initFromServer) {
       // const res = await json.get(`${process.env.REACT_APP_API_URL}/onestep/base/epc/language/get_user_language`)
       runInAction(() => {
-        this.locale = this._switchLocale('en')
+        this.locale = this._switchLocale('zh')
         this.initFromServer = true
       })
     }

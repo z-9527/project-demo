@@ -2,11 +2,17 @@ import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import PrivateRoute from './framework/PrivateRoute'
 import LoadableComponent from './framework/LoadableComponent'
+import localStore from './stores/LocaleStore'
 
 const project = process.env.REACT_APP_PROJECT_NAME
 const frontendRouter = require(`@/${project}/routers/frontend`).default
 
 class App extends Component {
+
+  async componentDidMount() {
+    await localStore.initLocaleInServer()
+  }
+
   render () {
     return (
       <Switch>

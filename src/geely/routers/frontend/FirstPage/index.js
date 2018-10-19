@@ -1,16 +1,11 @@
 import React, { Component } from 'react'
-import { inject, observer } from 'mobx-react'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import { FormattedMessage, injectIntl } from 'react-intl'
 import ReactFullPage from '@fullpage/react-fullpage'
 import css from './FirstPage.module.less'
 import history from '../../../../framework/customHistory'
 
-@injectIntl @inject('localeStore') @observer
+@injectIntl
 class FirstPage extends Component {
-
-  async componentDidMount () {
-    await this.props.localeStore.initLocaleInServer()
-  }
 
   render () {
     return (
