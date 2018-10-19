@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fullpage/react-fullpage": "^0.1.2",
     "antd": "^3.10.0",
     "classnames": "^2.2.6",
     "mobx": "^5.5.0",

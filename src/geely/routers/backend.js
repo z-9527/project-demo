@@ -1,6 +1,3 @@
-
-const backendRouter = [
+export default [
 
 ]
-
-export default backendRouter
