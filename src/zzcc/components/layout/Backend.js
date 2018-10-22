@@ -2,13 +2,11 @@ import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
 import { withRouter, Link, Route } from 'react-router-dom'
 import { Spin, Layout, Menu, Icon, Row, Col } from 'antd'
-import PrivateRoute from '../../../framework/PrivateRoute'
-import LoadableComponent from '../../../framework/LoadableComponent'
+import backend from '../../routers/backend'
 import styles from './Backend.module.less'
 
 const {Header, Content, Sider} = Layout
 const {SubMenu, Item} = Menu
-const backendRouters = require(`../../routers/backend`)
 
 @inject('backendStore')
 @withRouter
@@ -46,15 +44,13 @@ class Backend extends Component {
                 <Col span={19}>
                   <Menu mode="horizontal">
                     <Menu.Item key="mail">
-                      <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-                           style={{height: 30, width: 30}}/>
+                      <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" style={{height: 30, width: 30}}/>
                     </Menu.Item>
                   </Menu>
                 </Col>
                 <Col span={4}>
                   <Menu className={styles.menu} mode="horizontal">
-                    <SubMenu style={{float: 'right'}}
-                             title={<span><Icon type="user"/>{backendStore.userInfo.name}</span>}>
+                    <SubMenu style={{float: 'right'}} title={<span><Icon type="user"/>{backendStore.userInfo.name}</span>}>
                       <Menu.Item key="userInfo">
                         <Link to={'/'}><Icon type="home"/>进入前台</Link>
                       </Menu.Item>
@@ -68,13 +64,7 @@ class Backend extends Component {
               </Row>
             </Header>
             <Content style={{height: '100%'}}>
-              {backendRouters.default.map((item, index) => item.private ? (
-                <PrivateRoute key={`${index}`} exact={item.exact} path={`${match.url}${item.path}`}
-                              component={LoadableComponent(item.component)}/>
-              ) : (
-                <Route key={`${index}`} exact={item.exact} path={`${match.url}${item.path}`}
-                       component={LoadableComponent(item.component)}/>
-              ))}
+              {backend}
             </Content>
           </Layout>
         </Layout>
