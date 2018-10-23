@@ -52,7 +52,7 @@ class Backend extends Component {
                   <Menu className={styles.menu} mode="horizontal">
                     <SubMenu style={{float: 'right'}} title={<span><Icon type="user"/>{appStore.userInfo.name}</span>}>
                       <Menu.Item key="userInfo">
-                        <Link to={'/'}><Icon type="home"/>进入前台</Link>
+                        <Link to={'/home'}><Icon type="home"/>进入前台</Link>
                       </Menu.Item>
                       <Menu.Divider/>
                       <Menu.Item key="logout">
