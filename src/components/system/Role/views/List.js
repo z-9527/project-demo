@@ -5,12 +5,7 @@ import { Button, Icon, Card, Form, Input, Table, Divider, Popconfirm } from 'ant
 import LinkButton from '../../../../components/LinkButton'
 import Edit from './Edit'
 
-const ButtonGroup = Button.Group
-const FormItem = Form.Item
-const SearchInput = Input.Search
-const {
-  Column
-} = Table
+const {Column} = Table
 
 @inject('roleStore') @withRouter @observer
 class List extends Component {
@@ -23,9 +18,7 @@ class List extends Component {
   }
 
   render () {
-    const {
-      roleStore
-    } = this.props
+    const {roleStore} = this.props
     return (
       <Card bodyStyle={styles.cardBody}>
         <div style={{overflow: 'auto', marginBottom: 8}}>
@@ -66,13 +59,11 @@ class List extends Component {
   }
 }
 
-const ButtonGroupBar = ({
-                          onAdd
-                        }) => (
+const ButtonGroupBar = ({onAdd}) => (
   <div style={{float: 'right', marginTop: 4}}>
-    <ButtonGroup>
+    <Button.Group>
       <Button icon="plus" onClick={onAdd}>添加</Button>
-    </ButtonGroup>
+    </Button.Group>
   </div>
 )
 
@@ -85,18 +76,15 @@ const search = Form.create({
 @inject('roleStore') @search
 class SearchForm extends Component {
   render () {
-    const {
-      getFieldDecorator
-    } = this.props.form
+    const {getFieldDecorator} = this.props.form
     return (
       <div style={{float: 'left'}}>
         <Form layout="inline">
-          <FormItem style={{marginRight: 0}}>
+          <Form.Item style={{marginRight: 0}}>
             {getFieldDecorator('search')(
-              <SearchInput size="default" style={{width: 240}} placeholder="搜索" onSearch={this.searchHandle}
-                           enterButton/>,
+              <Input.Search size="default" style={{width: 240}} placeholder="搜索" onSearch={this.searchHandle} enterButton/>,
             )}
-          </FormItem>
+          </Form.Item>
         </Form>
       </div>
     )
