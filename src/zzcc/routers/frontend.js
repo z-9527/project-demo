@@ -4,9 +4,9 @@ import PrivateRoute from '../../framework/PrivateRoute'
 import LoadableComponent from '../../framework/LoadableComponent'
 
 const frontend = [
-  <Route key="frontend_1" exact path="/" component={LoadableComponent(import('./Index'))}/>,
-  <Route key="frontend_2" exact path="/login" component={LoadableComponent(import('./Login'))}/>,
-  <PrivateRoute key="frontend_3" path="/backend" component={LoadableComponent(import('././Backend/index'))}/>,
+  <Route key="frontend_index" exact path="/" component={LoadableComponent(import('./Index'))}/>,
+  <Route key="frontend_login" exact path="/login" component={LoadableComponent(import('./Login'))}/>,
+  <PrivateRoute key="frontend_backend" path="/backend" component={LoadableComponent(import('./BackendMain'))}/>,
 ]
 
 export default frontend

@@ -53,9 +53,8 @@ class UserStore {
       this.pagination = {
         showQuickJumper: true,
         showSizeChanger: true,
-        pageSizeOptions: [10, 20, 30, 50, 100],
+        pageSizeOptions: ['10', '20', '30', '50', '100'],
         total: res.totalElements,
-        results: res.size,
         page: res.number + 1,
         size: res.size,
       }
@@ -73,7 +72,6 @@ class UserStore {
       this.user = {roles: []}
     } else {
       const res = await json.get(`${process.env.REACT_APP_API_URL}/u/user/${id}`)
-      console.log(res.data)
       runInAction(() => {
         this.user = {...res.data, password: '', roles: res.data.roles.map(item => item.id)}
       })
@@ -93,7 +91,6 @@ class UserStore {
   @action fetchRoles = async (search, size = 100) => {
     this.fetching = true
     const res = await get(`${process.env.REACT_APP_API_URL}/u/roles:search`, {search, size})
-    console.log(res)
     runInAction(() => {
       this.fetching = false
       this.resources = res.data
