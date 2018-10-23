@@ -8,18 +8,18 @@ import styles from './Backend.module.less'
 const {Header, Content, Sider} = Layout
 const {SubMenu, Item} = Menu
 
-@inject('backendStore')
+@inject('appStore', 'backendStore')
 @withRouter
 @observer
 class Backend extends Component {
 
-  componentDidMount () {
+  async componentDidMount () {
     const {backendStore} = this.props
-    backendStore.initSideMenu()
+    await backendStore.initSideMenu()
   }
 
   render () {
-    const {backendStore} = this.props
+    const {appStore, backendStore} = this.props
 
     return (
       <Spin spinning={backendStore.loading}>
@@ -50,7 +50,7 @@ class Backend extends Component {
                 </Col>
                 <Col span={4}>
                   <Menu className={styles.menu} mode="horizontal">
-                    <SubMenu style={{float: 'right'}} title={<span><Icon type="user"/>{backendStore.userInfo.name}</span>}>
+                    <SubMenu style={{float: 'right'}} title={<span><Icon type="user"/>{appStore.userInfo.name}</span>}>
                       <Menu.Item key="userInfo">
                         <Link to={'/'}><Icon type="home"/>进入前台</Link>
                       </Menu.Item>

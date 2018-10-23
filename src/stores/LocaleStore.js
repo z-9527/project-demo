@@ -1,5 +1,4 @@
 import { observable, action, runInAction } from 'mobx'
-import { json } from '../framework/utils/ajax'
 
 const project = process.env.REACT_APP_PROJECT_NAME
 const zhCN = require(`../${project}/locales/zh-CN`).default

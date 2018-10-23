@@ -6,7 +6,7 @@ import LinkButton from '../../../components/LinkButton'
 const FormItem = Form.Item
 const form = Form.create()
 
-@inject('backendStore') @form @observer
+@inject('appStore', 'backendStore') @form @observer
 class Login extends Component {
   render () {
     const {form: {getFieldDecorator}, backendStore} = this.props

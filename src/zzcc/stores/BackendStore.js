@@ -6,7 +6,6 @@ import history from '../../framework/customHistory'
 
 class BackendStore {
   // top
-  @observable userInfo
   @observable loading
 
   // side
@@ -14,17 +13,11 @@ class BackendStore {
   @observable leftMenu
   @observable leftMenuMode
 
-  @observable isLogin
-
   constructor () {
-    this.userInfo = {user: {}, company: {}}
     this.loading = false
-
     this.collapsed = false
     this.leftMenu = []
     this.leftMenuMode = 'inline'
-
-    this.isLogin = false
   }
 
   @action collapse = () => {
@@ -32,34 +25,10 @@ class BackendStore {
     this.leftMenuMode = this.collapsed ? 'vertical' : 'inline'
   }
 
-  @action login = async (values) => {
-    this.loading = true
-    try {
-      const res = await json.post(`${process.env.REACT_APP_API_URL}/u/login:pc`, values)
-      if (res.status === 0) {
-        notification.error({message: res.code, description: res.msg})
-      } else {
-        this.loginSuccess(res.data.token)
-      }
-      runInAction(() => {
-        this.loading = false
-      })
-    } catch (e) {
-      notification.error({
-        message: 'error',
-        description: e.message
-      })
-    }
-  }
-
-  @action logout = () => {
-
-  }
-
   @action initSideMenu = async () => {
     this.loading = true
     try {
-      const res = await json.get(`${process.env.REACT_APP_API_URL}/u/menu/platformMark/pc`)
+      const res = await json.get(`${process.env.REACT_APP_API_URL}/u/menu/platformMark/backend`)
       console.log(res)
       if (res.status === 0) {
         notification.error({message: res.code, description: res.msg})
@@ -79,15 +48,7 @@ class BackendStore {
     }
   }
 
-  loginSuccess = async (token) => {
-    Session.authenticateSuccess(token)
-    history.push('/')
-    const res = await json.get(`${process.env.REACT_APP_API_URL}/u/menu/platformMark/pc`)
-    this.leftMenu = res.data
-    runInAction(() => {
-      this.isLogin = true
-    })
-  }
+
 }
 
 export default new BackendStore()
