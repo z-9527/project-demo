@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
-import { withRouter, Link, Route } from 'react-router-dom'
-import { Spin, Layout, Menu, Icon, Row, Col } from 'antd'
+import { Link, withRouter } from 'react-router-dom'
+import { Col, Icon, Layout, Menu, Row, Spin } from 'antd'
 import backend from '../../routers/backend'
 import styles from './Backend.module.less'
 
@@ -19,7 +19,7 @@ class Backend extends Component {
   }
 
   render () {
-    const {backendStore, match} = this.props
+    const {backendStore} = this.props
 
     return (
       <Spin spinning={backendStore.loading}>
