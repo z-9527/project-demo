@@ -1,11 +1,12 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch} from 'react-router-dom'
 import { Layout, Dropdown, Icon, Tooltip, Menu } from 'antd'
 import { FormattedMessage, injectIntl } from 'react-intl'
 import css from './HomePage.module.less'
-import SideMenu from '../../../components/SideMenu'
-import history from '../../../framework/customHistory'
+import SideMenu from '../../../../components/SideMenu'
+import history from '../../../../framework/customHistory'
+import home from '../../home'
 
 const {Header, Content, Sider, Footer} = Layout
 
@@ -51,28 +52,28 @@ class HomePage extends React.Component {
         id: '1',
         name: <FormattedMessage id={'HomePage.Configuration'}/>,
         icon: 'search',
-        url: `/backend/configureQuery`,
+        url: `/home/configureQuery`,
         leaf: true,
       },
       {
         id: '2',
         name: <FormattedMessage id={'HomePage.technical'}/>,
         icon: 'file-text',
-        url: `/backend/technicalNotice`,
+        url: `/home/technicalNotice`,
         leaf: true,
       },
       {
         id: '3',
         name: <FormattedMessage id={'HomePage.Answer'}/>,
         icon: 'question-circle-o',
-        url: `/backend/answerCenter`,
+        url: `/home/answerCenter`,
         leaf: true,
       },
       {
         id: '4',
         name: <FormattedMessage id={'HomePage.Shopping'}/>,
         icon: 'shopping-cart',
-        url: `/backend/shoppingCar`,
+        url: `/home/shoppingCar`,
         leaf: true,
       }
     ]
@@ -106,7 +107,7 @@ class HomePage extends React.Component {
           <Layout>
             <Content style={{padding: 24}}>
               <Switch>
-
+                {home}
               </Switch>
             </Content>
             <Footer style={{textAlign: 'center', marginLeft: -100}}>Copyright @ <FormattedMessage id={'HomePage.Geely'}/> 2018</Footer>

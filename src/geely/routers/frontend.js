@@ -7,5 +7,5 @@ export default [
   <Route key="frontend_index" exact path="/" component={LoadableComponent(import('./frontend/FirstPage'))}/>,
   <Route key="frontend_login" exact path="/login" component={LoadableComponent(import('./Login'))}/>,
   <PrivateRoute key="front_backend" path="/backend" component={LoadableComponent(import('./backend/Main'))}/>,
-  <PrivateRoute key="front_home" path="/home" component={LoadableComponent(import('./HomePage'))}/>,
+  <PrivateRoute key="front_home" path="/home" component={LoadableComponent(import('./home/HomePage'))}/>,
 ]
