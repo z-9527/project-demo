@@ -1,4 +1,5 @@
 import { observable, action, runInAction } from 'mobx'
+import moment from 'moment'
 
 const project = process.env.REACT_APP_PROJECT_NAME
 const zhCN = require(`../${project}/locales/zh-CN`).default
@@ -15,6 +16,7 @@ class LocaleStore {
 
   @action changeLocale = (locale) => {
     this.locale = this._switchLocale(locale)
+    moment.locale(locale)
   }
 
   @action initLocaleInServer = async () => {

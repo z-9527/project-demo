@@ -7077,7 +7077,7 @@ mobx@^5.5.0:
   resolved "http://registry.npm.taobao.org/mobx/download/mobx-5.5.0.tgz#a29f6a7526eed28edcd3f0e921a1edaa8bb22575"
   integrity sha1-op9qdSbu0o7c0/DpIaHtqouyJXU=
 
-moment@2.x, moment@^2.19.3:
+moment@2.x, moment@^2.19.3, moment@^2.22.2:
   version "2.22.2"
   resolved "http://registry.npm.taobao.org/moment/download/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
   integrity sha1-PCV/mDn8DpP/UxSWMiOeuQeD/2Y=
