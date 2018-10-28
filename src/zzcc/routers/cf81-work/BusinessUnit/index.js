@@ -1,30 +1,45 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
-import { Card, List } from 'antd'
+import { Card, List, Avatar } from 'antd'
+
+import LinkButton from '../../../../components/LinkButton'
+import Edit from './Edit'
+import css from './BusinessUnit.module.less'
 
 @inject('businessUnitStore') @withRouter @observer
 class BusinessUnit extends Component {
+
+  async componentDidMount () {
+    await this.props.businessUnitStore.loadList()
+  }
+
   render () {
     const {businessUnitStore} = this.props
     return (
-      <div style={{margin: '24px 24px 0'}}>
+      <div className={css.container}>
         <Card bodyStyle={styles.cardBody}>
           <List dataSource={businessUnitStore.list.slice()}
-                itemLayout="vertical"
-                pagination={{...businessUnitStore.pagination, onChange: (page) => console.log(page)}}
+                loading={businessUnitStore.loading}
+                itemLayout="horizontal"
                 renderItem={item => (
-                  <List.Item key={`${item.id}`}
-                             extra={<img width={272} alt="logo" src={item.imageUrl} />}
-                             actions={[<span>人数:100</span>, <span>资金池: 100</span>]}>
-                    <List.Item.Meta title={item.name}/>
-                    {item.description}
+                  <List.Item actions={[<LinkButton onClick={this.handleEdit.bind(this, item.id)}>edit</LinkButton>, <LinkButton>more</LinkButton>]}>
+                    <List.Item.Meta
+                      avatar={<img className={css.list_image} src={item.imageUrl ? `${process.env.REACT_APP_API_URL}/b/file/${item.imageUrl}?h=128` : `https://www.gravatar.com/avatar/${item.id}?d=identicon&s=80`}/>}
+                      title={item.name}
+                      description={item.description}
+                    />
                   </List.Item>
                 )}>
           </List>
         </Card>
+        <Edit/>
       </div>
     )
+  }
+
+  handleEdit = async (id) => {
+    await this.props.businessUnitStore.edit(id)
   }
 }
 

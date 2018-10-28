@@ -1,8 +1,6 @@
-import { observable, action, runInAction } from 'mobx'
+import { action, observable, runInAction } from 'mobx'
 import { json } from '../../framework/utils/ajax'
 import { notification } from 'antd'
-import * as Session from '../../framework/utils/Session'
-import history from '../../framework/customHistory'
 
 class BackendStore {
   // top
@@ -29,7 +27,6 @@ class BackendStore {
     this.loading = true
     try {
       const res = await json.get(`${process.env.REACT_APP_API_URL}/u/menu/platformMark/backend`)
-      console.log(res)
       if (res.status === 0) {
         notification.error({message: res.code, description: res.msg})
       } else {
