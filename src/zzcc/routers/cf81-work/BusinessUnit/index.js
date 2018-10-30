@@ -25,7 +25,7 @@ class BusinessUnit extends Component {
                 renderItem={item => (
                   <List.Item actions={[<LinkButton onClick={this.handleEdit.bind(this, item.id)}>edit</LinkButton>, <LinkButton>more</LinkButton>]}>
                     <List.Item.Meta
-                      avatar={<img className={css.list_image} src={item.imageUrl ? `${process.env.REACT_APP_API_URL}/b/file/${item.imageUrl}?h=128` : `https://www.gravatar.com/avatar/${item.id}?d=identicon&s=80`} alt="avatar"/>}
+                      avatar={<div className={css.list_avatar}><img className={css.list_image} src={item.imageUrl ? `${process.env.REACT_APP_API_URL}/b/file/${item.imageUrl}?h=128` : `https://www.gravatar.com/avatar/${item.id}?d=identicon&s=80`} alt="avatar"/></div>}
                       title={item.name}
                       description={item.description}
                     />

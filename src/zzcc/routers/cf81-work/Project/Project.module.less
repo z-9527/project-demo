@@ -1,8 +1,18 @@
 .container {
   margin: 24px 24px 0;
 
-  .list_image {
-    width: 80px;
+  @list-avatar-size: 64px;
+  .list_avatar {
+    width: @list-avatar-size;
+    height: @list-avatar-size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .list_image {
+      max-width: @list-avatar-size;
+      max-height: @list-avatar-size;
+    }
   }
 }
 
@@ -12,5 +22,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  cursor: pointer;
 }
