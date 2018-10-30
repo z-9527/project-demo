@@ -8,6 +8,7 @@ const backend = [
   <PrivateRoute key="backend_user" exact path="/backend/user" component={LoadableComponent(import('./backend/User'))}/>,
   <PrivateRoute key="backend_role" exact path="/backend/role" component={LoadableComponent(import('./backend/Role'))}/>,
   <PrivateRoute key="backend_business_unit" exact path="/backend/cf81-work/business/unit" component={LoadableComponent(import('./cf81-work/BusinessUnit'))}/>,
+  <PrivateRoute key="backend_project" exact path="/backend/cf81-work/project" component={LoadableComponent(import('./cf81-work/Project'))}/>,
 ]
 
 export default backend
