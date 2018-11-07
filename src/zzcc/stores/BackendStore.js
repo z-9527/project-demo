@@ -1,5 +1,5 @@
 import { action, observable, runInAction } from 'mobx'
-import { json } from '../../framework/utils/ajax'
+import { json } from '@/framework/utils/ajax'
 import { notification } from 'antd'
 
 class BackendStore {

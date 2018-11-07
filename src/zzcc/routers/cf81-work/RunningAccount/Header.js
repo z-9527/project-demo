@@ -1,21 +1,23 @@
 import React, { Component } from 'react'
+import {inject, observer} from 'mobx-react'
 import {Card, Row, Col,} from 'antd'
 
 import css from './RunningAccount.module.less'
 
+@inject('runningAccountStore') @observer
 class Header extends Component {
   render () {
     return (
       <Card bordered={false}>
         <Row>
           <Col sm={8} xs={24}>
-            <Info title="我的待办" value="8个任务" bordered />
+            <Info title="我的申请" value="8个申请" bordered />
           </Col>
           <Col sm={8} xs={24}>
-            <Info title="共处理" value="32个任务" bordered />
+            <Info title="我的事务" value="32个待处理" bordered />
           </Col>
           <Col sm={8} xs={24}>
-            <Info title="本周处理" value="24个任务" />
+            <Info title="我的项目" value="24个项目" />
           </Col>
         </Row>
       </Card>
@@ -30,5 +32,4 @@ const Info = ({ title, value, bordered }) => (
     {bordered && <em />}
   </div>
 )
-
 export default Header

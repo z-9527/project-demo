@@ -3,7 +3,12 @@ import { Button, List, Avatar } from 'antd'
 import { inject, observer } from 'mobx-react'
 
 @inject('runningAccountStore') @observer
-class ContentList extends Component {
+class MyApplyList extends Component {
+
+  async componentDidMount () {
+    await this.props.runningAccountStore.initMyApply()
+  }
+
   render () {
     const {runningAccountStore} = this.props
 
@@ -37,4 +42,4 @@ class ContentList extends Component {
   }
 }
 
-export default ContentList
+export default MyApplyList

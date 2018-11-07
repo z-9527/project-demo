@@ -20,9 +20,23 @@ class RunningAccountStore {
     this.projects = [{id: 1, name: 'xxx项目'}]
   }
 
-  @action initMyRunningAccount = async (page = 0, size = 10) => {
+  @action initMyWork = async (page = 0, size = 10) => {
     this.loading = true
-    const res = await json.get(`${process.env.REACT_APP_API_URL}/zzcc/workplace/running/account`, {page, size})
+    const res = await json.get(`${process.env.REACT_APP_API_URL}/zzcc/workplace/my/works`, {page, size})
+    if (res.status) {
+      runInAction(() => {
+        this.list = res.data.content
+        this.pagination = {}
+      })
+    }
+    runInAction(() => {
+      this.loading = false
+    })
+  }
+
+  @action initMyApply = async (page = 0, size = 10) => {
+    this.loading = true
+    const res = await json.get(`${process.env.REACT_APP_API_URL}/zzcc/workplace/my/applies`, {page, size})
     if (res.status) {
       runInAction(() => {
         this.list = res.data.content
@@ -37,7 +51,7 @@ class RunningAccountStore {
   }
 
   @action initMyProject = async (page = 0, size = 10) => {
-    const res = await json.get(`${process.env.REACT_APP_API_URL}/zzcc/workplace/project`, {page, size})
+    const res = await json.get(`${process.env.REACT_APP_API_URL}/zzcc/workplace/my/projects`, {page, size})
     console.log(res)
   }
 
