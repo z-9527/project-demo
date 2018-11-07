@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Card, List, Avatar, Icon} from 'antd'
+import {Card, List, Icon} from 'antd'
 import {inject, observer} from 'mobx-react'
 import css from './Project.module.less'
 

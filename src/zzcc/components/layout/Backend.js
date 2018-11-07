@@ -14,15 +14,18 @@ const {SubMenu, Item} = Menu
 class Backend extends Component {
 
   async componentDidMount () {
-    const {backendStore} = this.props
-    await backendStore.initSideMenu()
+    const {appStore, backendStore} = this.props
+    await Promise.all([
+      appStore.initUserInfo(),
+      backendStore.initSideMenu(),
+    ])
   }
 
   render () {
     const {appStore, backendStore} = this.props
 
     return (
-      <Spin spinning={backendStore.loading}>
+      <Spin spinning={backendStore.loading || appStore.loading}>
         <Layout className={styles.contains}>
           <Sider width={250} collapsible collapsed={backendStore.collapsed} onCollapse={() => backendStore.collapse()}>
             <Menu theme="dark" mode={backendStore.leftMenuMode}>

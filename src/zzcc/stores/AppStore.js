@@ -48,6 +48,19 @@ class AppStore {
       this.isLogin = true
     })
   }
+
+  @action initUserInfo = async () => {
+    this.loading = true
+    const res = await json.get(`${process.env.REACT_APP_API_URL}/u/userInfo`)
+    if (res.status) {
+      runInAction(() => {
+        this.userInfo = res.data
+      })
+    }
+    runInAction(() => {
+      this.loading = false
+    })
+  }
 }
 
 export default new AppStore()

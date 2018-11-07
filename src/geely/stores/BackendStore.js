@@ -29,7 +29,6 @@ class BackendStore {
     this.loading = true
     try {
       const res = await json.get(`${process.env.REACT_APP_API_URL}/u/menu/platformMark/backend`)
-      console.log(res)
       if (res.status === 0) {
         notification.error({message: res.code, description: res.msg})
       } else {

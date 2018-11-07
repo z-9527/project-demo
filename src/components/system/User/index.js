@@ -115,8 +115,7 @@ class SearchForm extends Component {
         <Form layout="inline">
           <FormItem>
             {getFieldDecorator('search')(
-              <SearchInput size="default" style={{width: 300}} placeholder="搜索" onSearch={this.searchHandle}
-                           enterButton/>,
+              <SearchInput size="default" style={{width: 300}} placeholder="搜索" onSearch={this.searchHandle} enterButton/>,
             )}
           </FormItem>
         </Form>
